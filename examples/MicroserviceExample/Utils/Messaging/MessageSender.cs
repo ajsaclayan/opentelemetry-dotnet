@@ -57,6 +57,8 @@ namespace Utils.Messaging
 
                 using (var activity = ActivitySource.StartActivity(activityName, ActivityKind.Producer))
                 {
+                    activity?.AddBaggage("Producer", "Test");
+
                     var props = this.channel.CreateBasicProperties();
 
                     // Depending on Sampling (and whether a listener is registered or not), the
